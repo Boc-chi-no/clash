@@ -258,7 +258,7 @@ func streamWebsocketConn(conn net.Conn, c *WebsocketConfig, earlyData *bytes.Buf
 
 	u, err := url.Parse(c.Path)
 	if err != nil {
-		return nil, fmt.Errorf("parse url[%s]: %s", c.Path, err)
+		return nil, fmt.Errorf("parse url %s error: %w", c.Path, err)
 	}
 	uri := url.URL{
 		Scheme:    scheme,
@@ -266,7 +266,6 @@ func streamWebsocketConn(conn net.Conn, c *WebsocketConfig, earlyData *bytes.Buf
 		Path:      u.Path,
 		RawQuery:  u.RawQuery,
 	}
-
 
 	headers := http.Header{}
 	if c.Headers != nil {
