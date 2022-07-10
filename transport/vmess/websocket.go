@@ -266,7 +266,6 @@ func streamWebsocketConn(conn net.Conn, c *WebsocketConfig, earlyData *bytes.Buf
 		Path:      u.Path,
 		RawQuery:  u.RawQuery,
 	}
-
 	headers := http.Header{}
 	if c.Headers != nil {
 		for k := range c.Headers {
